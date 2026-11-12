@@ -1,9 +1,26 @@
 import socket
 import time
+from enum import Enum
 
 Server_IP = '127.0.0.1'
 Server_PORT = 50000
 MESSAGE = 'smello world'
+
+
+#<ID><Rechenoperation><N><z1><z2>…<zN>
+Operations = Enum('SUM','PRO','MIN','MAX')
+def send_command(ID, operator, nums):
+    s = '<' +  ID + '>' + '<' +  operator + '>'
+    for num in nums:
+        s += '<' + str(num)+ '>'
+    return s
+
+def test_commands():
+    send_command(1, Operations.SUM, [1,2])
+
+
+
+
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.settimeout(10)
