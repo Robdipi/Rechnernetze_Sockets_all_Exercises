@@ -20,11 +20,11 @@ def send_command(ID, operator, nums):
     sock.send(message.encode('utf-8'))
 
 def test_commands():
-    send_command(1, "SUM", [1,2])
-    send_command(2, "PRO", [3,4])
-    send_command(3, "MAX", [5,6])
+    #send_command(1, "SUM", [1,2])
+    #send_command(2, "PRO", [3,4])
+    #send_command(3, "MAX", [5,6])
     send_command(4, "MIN", [7,8])
-    send_command(5, "SUM", range(1,1000))
+    #send_command(5, "SUM", range(1,1000))
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
