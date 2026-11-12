@@ -1,6 +1,8 @@
 import socket
 import time
 
+from Rechnungsserver.calcClient import Operations
+
 My_IP = '127.0.0.1'
 My_PORT = 50000
 server_activity_period=30;
@@ -22,6 +24,16 @@ while time.time()<t_end:
     except socket.timeout:
         print('Socket timed out listening',time.asctime())
 
+
+def calculateResult(param):
+
+
+
+
+
+
+
+
 while time.time()<t_end:
     try:
         data = conn.recv(1024)
@@ -31,7 +43,7 @@ while time.time()<t_end:
             conn.close()
             break
         print('received message: ', data.decode('utf-8'), 'from ', addr)
-        conn.send(data[::-1])
+        conn.send(calculateResult(data[::-1]))
     except socket.timeout:
         print('Socket timed out at',time.asctime())
 
